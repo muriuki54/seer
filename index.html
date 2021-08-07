@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    
+    <div class="SEER_Wrapper">
+        <div class="seer_wrapper_top">
+            <div class="seer_wrapper_top_left">
+                <h2>Calculate how much you'll save on power costs</h2>
+                <form action="">
+                    <div class="form_group current_ac_seer_rating">
+                        <label for="current-ac-seer-rating">Current AC SEER Rating</label>
+                        <input type="range" id="current_ac_rating" list="current_ac_rating_ticks" name="current-ac-seer-rating" min="9" max="24" value="10" step="1" />
+                        <datalist id="current_ac_rating_ticks">
+                            <option value="9" label="9"></option>
+                            <option value="10" label="10"></option>
+                            <option value="11" label="11"></option>
+                            <option value="12" label="12"></option>
+                            <option value="13" label="13"></option>
+                            <option value="14" label="14"></option>
+                            <option value="15" label="15"></option>
+                            <option value="15" label="16"></option>
+                            <option value="15" label="17"></option>
+                            <option value="15" label="18"></option>
+                            <option value="15" label="19"></option>
+                            <option value="15" label="20"></option>
+                            <option value="15" label="21"></option>
+                            <option value="15" label="22"></option>
+                            <option value="15" label="23"></option>
+                            <option value="15" label="24"></option>
+                        </datalist>
+                        <div class="seer_range_tooltip seer_range_tooltip_current">10</div>
+                    </div>
+
+                    <div class="form_group new_ac_seer_rating">
+                        <label for="new-ac-seer-rating">New AC SEER Rating</label>
+                        <input type="range" data-width="50" id="new_ac_rating" list="new_ac_rating_ticks" name="new-ac-seer-rating"  min="9" max="24" value="14" step="1" />
+                        
+                        <datalist id="new_ac_rating_ticks">
+                            <option value="9" label="9"></option>
+                            <option value="10" label="10"></option>
+                            <option value="11" label="11"></option>
+                            <option value="12" label="12"></option>
+                            <option value="13" label="13"></option>
+                            <option value="14" label="14"></option>
+                            <option value="15" label="15"></option>
+                            <option value="15" label="16"></option>
+                            <option value="15" label="17"></option>
+                            <option value="15" label="18"></option>
+                            <option value="15" label="19"></option>
+                            <option value="15" label="20"></option>
+                            <option value="15" label="21"></option>
+                            <option value="15" label="22"></option>
+                            <option value="15" label="23"></option>
+                            <option value="15" label="24"></option>
+                        </datalist>
+
+                        <div class="seer_range_tooltip seer_range_tooltip_new">14</div>
+                    </div>
+
+                    <div class="form_group total_spent_hours">
+                        <label for="total_hours_spent">Total hours</label>
+                        <input type="range" data-width="50" id="total_hours_spent" list="hours_spent" name="total_hours_spent"  min="1000" max="3000" value="1000" step="100" />
+                        
+                        <datalist id="hours_spent">
+                            <option value="1000" label="1000"></option>
+                            <option value="12000" label="2000"></option>
+                            <option value="3000" label="3000"></option>
+                        </datalist>
+
+                        <div class="seer_range_tooltip seer_range_tooltip_hours">1000</div>
+                    </div>
+
+                    <div class="form__grouped">
+                        <div class="form_group">
+                            <label for="kWh">cents per Kilowatt hour. Default <span>13.19</span> cents / kWh</label>
+                            <input type="number" name="kWh" class="power_cost" value="13.19" placeholder="cents / kWh" min="1" />
+                        </div>
+
+                        <div class="form_group">
+                            <label for="ACTonnage">AC Tonnage</label>
+                            <div class="ACTonnage_dropdown">
+                            <select name="" id="">
+                                <!-- <option disabled selected>AC Tonnage</option> -->
+                                <option value="1">1</option>
+                                <option selected value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <small>Based on 1000 hours of usage</small>
+                </form>
+            </div>
+            <div class="seer_wrapper_top_right">
+                <div class="seer_savings_arc">
+                    <h4>Total savings</h4>
+                    <div class="seer_savings_arc_svg_container">
+                        <svg width="180" height="90" viewBox="0 0 180 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M180 90C180 78.181 177.672 66.4778 173.149 55.5585C168.626 44.6392 161.997 34.7177 153.64 26.3604C145.282 18.0031 135.361 11.3738 124.442 6.85084C113.522 2.32792 101.819 -5.16623e-07 90 0C78.181 5.16624e-07 66.4778 2.32792 55.5585 6.85084C44.6392 11.3738 34.7177 18.0031 26.3604 26.3604C18.0031 34.7177 11.3738 44.6392 6.85084 55.5585C2.32792 66.4778 -1.03325e-06 78.181 0 90L20.5331 90C20.5331 80.8775 22.3299 71.8443 25.8209 63.4162C29.312 54.988 34.4289 47.3301 40.8795 40.8795C47.3301 34.4289 54.988 29.312 63.4162 25.8209C71.8443 22.3299 80.8775 20.5331 90 20.5331C99.1225 20.5331 108.156 22.3299 116.584 25.8209C125.012 29.312 132.67 34.4289 139.121 40.8795C145.571 47.3301 150.688 54.988 154.179 63.4162C157.67 71.8443 159.467 80.8775 159.467 90H180Z" fill="url(#paint0_linear)"/>
+                            <defs>
+                            <linearGradient id="paint0_linear" x1="174" y1="90" x2="7" y2="90" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#09FF21"/>
+                            <stop offset="0.786458" stop-color="#4F73EB"/>
+                            <stop offset="1" stop-color="#FB7755"/>
+                            </linearGradient>
+                            </defs>
+                            </svg>
+                            
+                    <div class="savings_meter_indicator"></div>
+                    </div>
+
+                    <br />
+                    <small>Savings percentage per year</small>
+                    <h2 class="font_light heading_large savings_percentage_per_year"></h2>
+
+                </div>
+                <div class="seer_savings_circular_svg_wrapper">
+                    <div class="seer_savings_circular_svg seer_savings_circular_svg_1">
+
+                        <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle  cx="75" cy="75" r="67.5" stroke="#fff" stroke-width="15"/>
+                            <circle class="seer_savings_circular_svg_1_outer"  cx="75" cy="75" r="67.5" stroke="#4F73EB" stroke-width="15"/>
+                            <path d="M56.4072 82H54.7725V71.1631L51.4941 72.3672V70.8906L56.1523 69.1416H56.4072V82ZM68.9141 79.6182L71.1289 72.4902H72.8691L69.0459 83.4678C68.4541 85.0498 67.5137 85.8408 66.2246 85.8408L65.917 85.8145L65.3105 85.7002V84.3818L65.75 84.417C66.3008 84.417 66.7285 84.3057 67.0332 84.083C67.3438 83.8604 67.5986 83.4531 67.7979 82.8613L68.1582 81.8945L64.7656 72.4902H66.541L68.9141 79.6182ZM78.1514 82.1758C76.8623 82.1758 75.8135 81.7539 75.0049 80.9102C74.1963 80.0605 73.792 78.9268 73.792 77.5088V77.21C73.792 76.2666 73.9707 75.4258 74.3281 74.6875C74.6914 73.9434 75.1953 73.3633 75.8398 72.9473C76.4902 72.5254 77.1934 72.3145 77.9492 72.3145C79.1855 72.3145 80.1465 72.7217 80.832 73.5361C81.5176 74.3506 81.8604 75.5166 81.8604 77.0342V77.7109H75.418C75.4414 78.6484 75.7139 79.4072 76.2354 79.9873C76.7627 80.5615 77.4307 80.8486 78.2393 80.8486C78.8135 80.8486 79.2998 80.7314 79.6982 80.4971C80.0967 80.2627 80.4453 79.9521 80.7441 79.5654L81.7373 80.3389C80.9404 81.5635 79.7451 82.1758 78.1514 82.1758ZM77.9492 73.6504C77.293 73.6504 76.7422 73.8906 76.2969 74.3711C75.8516 74.8457 75.5762 75.5137 75.4707 76.375H80.2344V76.252C80.1875 75.4258 79.9648 74.7871 79.5664 74.3359C79.168 73.8789 78.6289 73.6504 77.9492 73.6504ZM89.6211 82C89.5273 81.8125 89.4512 81.4785 89.3926 80.998C88.6367 81.7832 87.7344 82.1758 86.6855 82.1758C85.748 82.1758 84.9775 81.9121 84.374 81.3848C83.7764 80.8516 83.4775 80.1777 83.4775 79.3633C83.4775 78.373 83.8525 77.6055 84.6025 77.0605C85.3584 76.5098 86.4189 76.2344 87.7842 76.2344H89.3662V75.4873C89.3662 74.9189 89.1963 74.4678 88.8564 74.1338C88.5166 73.7939 88.0156 73.624 87.3535 73.624C86.7734 73.624 86.2871 73.7705 85.8945 74.0635C85.502 74.3564 85.3057 74.7109 85.3057 75.127H83.6709C83.6709 74.6523 83.8379 74.1953 84.1719 73.7559C84.5117 73.3105 84.9688 72.959 85.543 72.7012C86.123 72.4434 86.7588 72.3145 87.4502 72.3145C88.5459 72.3145 89.4043 72.5898 90.0254 73.1406C90.6465 73.6855 90.9688 74.4385 90.9922 75.3994V79.7764C90.9922 80.6494 91.1035 81.3438 91.3262 81.8594V82H89.6211ZM86.9229 80.7607C87.4326 80.7607 87.916 80.6289 88.373 80.3652C88.8301 80.1016 89.1611 79.7588 89.3662 79.3369V77.3857H88.0918C86.0996 77.3857 85.1035 77.9688 85.1035 79.1348C85.1035 79.6445 85.2734 80.043 85.6133 80.3301C85.9531 80.6172 86.3896 80.7607 86.9229 80.7607ZM98.1377 73.9492C97.8916 73.9082 97.625 73.8877 97.3379 73.8877C96.2715 73.8877 95.5479 74.3418 95.167 75.25V82H93.541V72.4902H95.123L95.1494 73.5889C95.6826 72.7393 96.4385 72.3145 97.417 72.3145C97.7334 72.3145 97.9736 72.3555 98.1377 72.4375V73.9492Z" fill="black"/>
+                        </svg>
+                            
+                        <br />
+                        <small>Current AC usage per year</small>
+                        <h2 class="font_light monetary_current_usage_per_year"><span>$</span><span class="value heading_large"></span></h2>
+                    </div>
+                    <div class="seer_savings_circular_svg seer_savings_circular_svg_2">
+                        
+                            
+                        <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle  cx="75" cy="75" r="67.5" stroke="#fff" stroke-width="15"/>
+                            <circle class="seer_savings_circular_svg_2_outer" cx="75" cy="75" r="67.5" stroke="#4F73EB" stroke-width="15"/>
+                            <path d="M56.4072 82H54.7725V71.1631L51.4941 72.3672V70.8906L56.1523 69.1416H56.4072V82ZM68.9141 79.6182L71.1289 72.4902H72.8691L69.0459 83.4678C68.4541 85.0498 67.5137 85.8408 66.2246 85.8408L65.917 85.8145L65.3105 85.7002V84.3818L65.75 84.417C66.3008 84.417 66.7285 84.3057 67.0332 84.083C67.3438 83.8604 67.5986 83.4531 67.7979 82.8613L68.1582 81.8945L64.7656 72.4902H66.541L68.9141 79.6182ZM78.1514 82.1758C76.8623 82.1758 75.8135 81.7539 75.0049 80.9102C74.1963 80.0605 73.792 78.9268 73.792 77.5088V77.21C73.792 76.2666 73.9707 75.4258 74.3281 74.6875C74.6914 73.9434 75.1953 73.3633 75.8398 72.9473C76.4902 72.5254 77.1934 72.3145 77.9492 72.3145C79.1855 72.3145 80.1465 72.7217 80.832 73.5361C81.5176 74.3506 81.8604 75.5166 81.8604 77.0342V77.7109H75.418C75.4414 78.6484 75.7139 79.4072 76.2354 79.9873C76.7627 80.5615 77.4307 80.8486 78.2393 80.8486C78.8135 80.8486 79.2998 80.7314 79.6982 80.4971C80.0967 80.2627 80.4453 79.9521 80.7441 79.5654L81.7373 80.3389C80.9404 81.5635 79.7451 82.1758 78.1514 82.1758ZM77.9492 73.6504C77.293 73.6504 76.7422 73.8906 76.2969 74.3711C75.8516 74.8457 75.5762 75.5137 75.4707 76.375H80.2344V76.252C80.1875 75.4258 79.9648 74.7871 79.5664 74.3359C79.168 73.8789 78.6289 73.6504 77.9492 73.6504ZM89.6211 82C89.5273 81.8125 89.4512 81.4785 89.3926 80.998C88.6367 81.7832 87.7344 82.1758 86.6855 82.1758C85.748 82.1758 84.9775 81.9121 84.374 81.3848C83.7764 80.8516 83.4775 80.1777 83.4775 79.3633C83.4775 78.373 83.8525 77.6055 84.6025 77.0605C85.3584 76.5098 86.4189 76.2344 87.7842 76.2344H89.3662V75.4873C89.3662 74.9189 89.1963 74.4678 88.8564 74.1338C88.5166 73.7939 88.0156 73.624 87.3535 73.624C86.7734 73.624 86.2871 73.7705 85.8945 74.0635C85.502 74.3564 85.3057 74.7109 85.3057 75.127H83.6709C83.6709 74.6523 83.8379 74.1953 84.1719 73.7559C84.5117 73.3105 84.9688 72.959 85.543 72.7012C86.123 72.4434 86.7588 72.3145 87.4502 72.3145C88.5459 72.3145 89.4043 72.5898 90.0254 73.1406C90.6465 73.6855 90.9688 74.4385 90.9922 75.3994V79.7764C90.9922 80.6494 91.1035 81.3438 91.3262 81.8594V82H89.6211ZM86.9229 80.7607C87.4326 80.7607 87.916 80.6289 88.373 80.3652C88.8301 80.1016 89.1611 79.7588 89.3662 79.3369V77.3857H88.0918C86.0996 77.3857 85.1035 77.9688 85.1035 79.1348C85.1035 79.6445 85.2734 80.043 85.6133 80.3301C85.9531 80.6172 86.3896 80.7607 86.9229 80.7607ZM98.1377 73.9492C97.8916 73.9082 97.625 73.8877 97.3379 73.8877C96.2715 73.8877 95.5479 74.3418 95.167 75.25V82H93.541V72.4902H95.123L95.1494 73.5889C95.6826 72.7393 96.4385 72.3145 97.417 72.3145C97.7334 72.3145 97.9736 72.3555 98.1377 72.4375V73.9492Z" fill="black"/>
+                        </svg>
+                            
+                        <br />
+                        <small>New AC usage per years</small>
+                        <h2 class="font_light monetary_new_usage_per_year"><span>$</span><span class="heading_large value"></span></h2>
+                    </div>
+                </div>
+
+                <h2 class="font_light monetary_savings_per_year"><span>Savings per year : $</span><span class="heading_large value"></span></h2>
+                <h2 class="font_light monetary_savings_per_five_year"><span>Savings in 5 years: $</span><span class="heading_large value"></span></h2>
+
+                <small class="seer_disclaimer">* Actual prices may vary</small>
+
+
+            </div>
+        </div>
+        <div class="seer_wrapper_bottom">
+            <h2>What is SEER</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, nam explicabo. Possimus, deleniti sunt adipisci earum et, aspernatur nemo dolore voluptas sit temporibus totam! Amet voluptates explicabo architecto qui expedita suscipit iusto, sunt omnis quisquam aliquid dolorem ducimus error optio labore ipsum impedit quos harum animi voluptatem nemo! Quod, rem.</p>
+
+            <h2>Another title</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio magnam blanditiis totam aspernatur quaerat eveniet quae exercitationem praesentium corrupti impedit!</p>
+
+            <h2>How does it work</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae libero quos eum quibusdam delectus voluptas iure, neque sed asperiores omnis qui, vitae ratione facere eaque, atque nulla? Ipsum, vitae similique.</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
